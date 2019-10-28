@@ -79,7 +79,7 @@ def get_meta_data_json(url, parsed):
     except:
         return {"error": "Invalid Response"}
     headers = page.headers
-    soup = bs(page.text, features="lxml")
+    soup = bs(page.text, features="html.parser")
     # meta_tags = soup.find_all("meta")
     title = soup.find("title")
     ret_json = {"title": title.text if title else None}
